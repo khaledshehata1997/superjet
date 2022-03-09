@@ -4,13 +4,19 @@ import 'package:get/get.dart';
 import 'package:suuperjet/constants.dart';
 
 class Screen6 extends StatelessWidget {
+   String? image;
+  Screen6({this.image});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0.0,
-        leading: Icon(Icons.arrow_back_outlined,size: 30,color: secondColor,),
+        leading: GestureDetector(
+            onTap: (){
+              Navigator.pop(context);
+            },
+            child: Icon(Icons.arrow_back_outlined,size: 30,color: secondColor,)),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -46,7 +52,7 @@ class Screen6 extends StatelessWidget {
             Container(
                 width: Get.width*.9,
                 height: Get.height*.29,
-                child: Image.asset('images/discount2.png',fit: BoxFit.fill,)),
+                child: Image.asset('$image',fit: BoxFit.fill,)),
             Container(
               margin: EdgeInsets.only(top: 8,left: 8,right: 8),
               alignment: Alignment.center,

@@ -33,18 +33,21 @@ class Screen14 extends StatelessWidget {
              ),
              SizedBox(height: Get.height*.03,),
               TextFormField(
+                keyboardType: TextInputType.name,
                 decoration: InputDecoration(
                   hintText: 'NAME',
                   prefixIcon:  Image.asset('products/star.png',height: 2,))
 
               ) ,SizedBox(height: Get.height*.03,),
               TextFormField(
+                  keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
                   hintText: 'EMAIL',
                   prefixIcon:  Image.asset('products/star.png',height: 2,))
 
               ) ,SizedBox(height: Get.height*.03,),
               TextFormField(
+                  keyboardType: TextInputType.phone,
                 decoration: InputDecoration(
                   hintText: 'PHONE NUMBER',
                   prefixIcon:  Image.asset('products/star.png',height: 2,))
@@ -81,18 +84,22 @@ class Screen14 extends StatelessWidget {
              ),
              SizedBox(height: Get.height*.03,),
              TextFormField(
+                 keyboardType: TextInputType.name,
                  decoration: InputDecoration(
+
                      hintText: 'NAME',
                      prefixIcon:  Image.asset('products/star.png',height: 2,))
 
              ) ,SizedBox(height: Get.height*.03,),
              TextFormField(
+                 keyboardType: TextInputType.emailAddress,
                  decoration: InputDecoration(
                      hintText: 'EMAIL',
                      prefixIcon:  Image.asset('products/star.png',height: 2,))
 
              ) ,SizedBox(height: Get.height*.03,),
              TextFormField(
+                 keyboardType: TextInputType.phone,
                  decoration: InputDecoration(
                      hintText: 'PHONE NUMBER',
                      prefixIcon:  Image.asset('products/star.png',height: 2,))

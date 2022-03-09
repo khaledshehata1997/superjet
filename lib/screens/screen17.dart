@@ -3,13 +3,104 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:get/get.dart';
 import 'package:suuperjet/screens/screen1.dart';
+import 'package:suuperjet/screens/screen3.dart';
+import 'package:suuperjet/screens/screen5.dart';
+import 'package:suuperjet/screens/screen8.dart';
 
 import '../constants.dart';
 
 class Screen17 extends StatelessWidget {
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
+      drawer: Drawer(
+        child: SafeArea(
+          child: Container(
+            margin: EdgeInsets.only(top: 20,left: 5,right: 5),
+            child: Column(
+              children: [
+
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Row(
+                      children: [
+                        Icon(Icons.person_pin,color:mainColor,size: 30,),
+                        Icon(Icons.notifications_none,color: mainColor,size: 30,)
+                      ],
+                    ),
+                    GestureDetector(
+                        onTap: (){
+                          Navigator.pop(context);
+                        },
+                        child: Icon(Icons.close,color:mainColor,size: 30,))                  ],
+                ),
+                Container(
+
+                  height: MediaQuery.of(context).size.height*.8,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      GestureDetector(
+                        onTap: (){
+                          Get.to(Screen1());
+
+                        },
+                        child: Text('HOME',style: TextStyle(
+                            fontSize: 25,
+                            color: secondColor
+                        ),),
+                      ),
+                      Container(
+                        margin: EdgeInsets.only(right: 30),
+                        width: 30,
+                        height: 2,
+                        color: mainColor,
+                      ),
+                      SizedBox(height: 20,),
+                      GestureDetector(
+                        onTap: (){
+                          Get.to(Screen8());
+                        },
+                        child: Text('SERVICES',style: TextStyle(
+                            fontSize: 25,
+                            color: Colors.teal[300]
+                        ),),
+                      ),
+                      SizedBox(height: 20,),
+                      GestureDetector(
+                        onTap: (){
+                          Get.to(Screen5());
+                        },
+                        child: Text('OFFERS',style: TextStyle(
+                            fontSize: 25,
+                            color: Colors.teal[300]
+                        ),),
+                      ),
+                      SizedBox(height: 20,),
+                      GestureDetector(
+                        onTap: (){
+                          Get.to(Screen3());
+                        },
+                        child: Text('CONTACT US',style: TextStyle(
+                            fontSize: 25,
+                            color: Colors.teal[300]
+                        ),),
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
+            width: double.infinity,
+            height: MediaQuery.of(context).size.height,
+          ),
+        ),
+
+      ),
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0.0,
@@ -21,7 +112,7 @@ class Screen17 extends StatelessWidget {
             alignment: Alignment.center,
             children: [
               Container(
-                  width: Get.width*.2,height: Get.height*.08,
+                  width: Get.width*.2,height: Get.height*.06,
                   child: Image.asset('images/leading.png',fit: BoxFit.fill,)),
               Positioned(
                   bottom: 12,
@@ -31,7 +122,11 @@ class Screen17 extends StatelessWidget {
           ),
         ),
         actions: [
-          Icon(Icons.segment,size: 28,color:mainColor,)
+          GestureDetector(
+          onTap: (){
+    _scaffoldKey.currentState!.openDrawer();
+    },
+      child:  Icon(Icons.segment,size: 28,color:mainColor,))
         ],
       ),
       body: SingleChildScrollView(
@@ -188,7 +283,9 @@ class Screen17 extends StatelessWidget {
                       fontSize: 11,
                       fontWeight: FontWeight.bold
                   ),)),
-              ElevatedButton(onPressed: (){},
+              ElevatedButton(onPressed: (){
+                Get.to(Screen1());
+              },
                   style: ElevatedButton.styleFrom(primary: mainColor),
                   child: Text('CANCLE TICKET',style: TextStyle(
                       fontSize: 11,

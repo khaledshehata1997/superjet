@@ -18,6 +18,7 @@ class Screen1 extends StatefulWidget {
 
 class _Screen1State extends State<Screen1> {
   Color orange=Colors.orange;
+  DateTime currentDate = DateTime.now();
 
 bool color=true;
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
@@ -27,7 +28,6 @@ bool color=true;
     'images2/grid2-mdpi.png',
     'images2/grid3.png',
     'images2/grid4.png',
-    'images2/grid5.png',
   ];
 
   @override
@@ -50,7 +50,11 @@ bool color=true;
                              Icon(Icons.notifications_none,color: mainColor,size: 30,)
                            ],
                          ),
-                         Icon(Icons.close,color:mainColor,size: 30,)
+                         GestureDetector(
+                             onTap: (){
+                               Navigator.pop(context);
+                             },
+                             child: Icon(Icons.close,color:mainColor,size: 30,))
                        ],
                      ),
                      Container(
@@ -142,11 +146,11 @@ bool color=true;
                            alignment: Alignment.center,
                            children: [
                              Container(
-                                 width: Get.width*.25,height: Get.height*.08,
+                                 width: Get.width*.2,height: Get.height*.06,
                                  child: Image.asset('images/leading.png',fit: BoxFit.fill,)),
                              Positioned(
                                  bottom: 12,
-                                 left: Get.width*.12,
+                                 left: Get.width*.0,
                                  child: Image.asset('images2/900+ Free Mobil.png'))
                            ],
                          ),
@@ -202,7 +206,7 @@ bool color=true;
                                ]
                              ),
                            width: Get.width*.88,
-                           height: Get.height*.51,
+                           height: Get.height*.52,
                            child: Column(
                              children: [
                                Row(
@@ -278,11 +282,15 @@ bool color=true;
                                  decoration: InputDecoration(
                                    hintText: 'Deprature Date',
                                    prefixIcon: Icon(Icons.date_range),
-                                   suffixIcon: Icon(Icons.keyboard_arrow_down_rounded,size: 30,)
+                                   suffixIcon: GestureDetector(
+                                       onTap: (){
+                                         _selectDate(context);
+                                       },
+                                       child: Icon(Icons.keyboard_arrow_down_rounded,size: 30,))
                                  ),
                                ),
                                SizedBox(height: Get.height*.02,),
-                               TextFormField(
+                              color==false? TextFormField(
                                  decoration: InputDecoration(
                                    hintText: 'Return Date',
                                    hintStyle: TextStyle(
@@ -290,7 +298,9 @@ bool color=true;
                                    ),
                                    prefixIcon: Icon(Icons.date_range,color: Colors.grey[400],),
                                  ),
-                               ),
+                               ):Container(
+                                height: Get.height*.05,
+                              ),
                                SizedBox(height: Get.height*.02,),
                                ElevatedButton(onPressed: (){
                                      Get.to(Screen10());
@@ -322,7 +332,7 @@ bool color=true;
                height: Get.height*.5,
                width: Get.width,
                child: GridView.builder(
-               itemCount: 5,
+               itemCount: 4,
                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                    crossAxisCount: 2,
                  crossAxisSpacing: 5,
@@ -349,7 +359,9 @@ bool color=true;
                        primary: Colors.white
                      ),
                    ) ,
-                   ElevatedButton(onPressed: (){},
+                   ElevatedButton(onPressed: (){
+                     Get.to(Screen8());
+                   },
                        child: Text('OUR SERVICES',style: TextStyle(fontSize: 16),),
                      style: ElevatedButton.styleFrom(
                        fixedSize: Size.fromWidth(Get.width*.42),
@@ -619,8 +631,18 @@ bool color=true;
                                    fontSize: 12,
                                    color: Colors.white
                                ),),
-                               Icon(Icons.arrow_circle_up,color: Colors.white,
-                                 size:50,)
+                               GestureDetector(
+                                 onTap: (){
+                                   void _reload([value]) {
+                                     setState(() {});
+                                   }
+                                   Navigator.of(context)
+                                       .push(MaterialPageRoute(builder: (context) => Screen1()))
+                                       .then((value) => _reload(value));
+                                 },
+                                 child: Icon(Icons.arrow_circle_up,color: Colors.white,
+                                   size:50,),
+                               )
                              ],
                            ),
                          ],
@@ -632,5 +654,16 @@ bool color=true;
                ]),
     ),
     );
+  }
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? pickedDate = await showDatePicker(
+        context: context,
+        initialDate: currentDate,
+        firstDate: DateTime(2015),
+        lastDate: DateTime(2050));
+    if (pickedDate != null && pickedDate != currentDate)
+      setState(() {
+        currentDate = pickedDate;
+      });
   }
 }
