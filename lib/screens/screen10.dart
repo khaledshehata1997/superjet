@@ -11,7 +11,9 @@ import '../constants.dart';
 
 class Screen10 extends StatelessWidget {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-
+String? from;
+String? to;
+Screen10({this.to,this.from});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -159,7 +161,7 @@ class Screen10 extends StatelessWidget {
 
                             ],
                           ),
-                          Text('Cairo',style: TextStyle(color: Colors.black54,fontSize: 12),)
+                          Text('$from',style: TextStyle(color: Colors.black54,fontSize: 12),)
                         ],
                       ),
                       Column(
@@ -171,7 +173,7 @@ class Screen10 extends StatelessWidget {
 
                             ],
                           ),
-                          Text('Alexandria',style: TextStyle(color: Colors.black54,fontSize: 12),)
+                          Text('$to',style: TextStyle(color: Colors.black54,fontSize: 12),)
                         ],
                       ),Column(
                         children: [
@@ -388,7 +390,9 @@ class Screen10 extends StatelessWidget {
                                   Text('100 EGP',style: TextStyle(color: Colors.black54,fontSize: 13),),
                                   Text('for aseat',style: TextStyle(color: Colors.black54,fontSize: 13),),
                                   ElevatedButton(onPressed: (){
-                                    Get.to(Screen12());
+                                    Get.to(Screen12(
+                                      from: from,
+                                      to: to,));
                                   },
                                       style: ElevatedButton.styleFrom(
                                           primary: mainColor
@@ -463,7 +467,10 @@ class Screen10 extends StatelessWidget {
                                   Text('100 EGP',style: TextStyle(color: Colors.black54,fontSize: 13),),
                                   Text('for aseat',style: TextStyle(color: Colors.black54,fontSize: 13),),
                                   ElevatedButton(onPressed: (){
-                                    Get.to(Screen12());
+                                    Get.to(Screen12(
+                                      from: from,
+                                      to: to,
+                                    ));
                                   },
                                       style: ElevatedButton.styleFrom(
                                           primary: mainColor

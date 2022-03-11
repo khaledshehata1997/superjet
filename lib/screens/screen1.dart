@@ -10,13 +10,14 @@ import 'package:suuperjet/screens/screen5.dart';
 import 'package:suuperjet/screens/screen8.dart';
 
 import '../constants.dart';
-
 class Screen1 extends StatefulWidget {
   @override
   State<Screen1> createState() => _Screen1State();
 }
 
 class _Screen1State extends State<Screen1> {
+   String? from;
+   String? to;
   Color orange=Colors.orange;
   DateTime currentDate = DateTime.now();
 
@@ -149,8 +150,8 @@ bool color=true;
                                  width: Get.width*.2,height: Get.height*.06,
                                  child: Image.asset('images/leading.png',fit: BoxFit.fill,)),
                              Positioned(
-                                 bottom: 12,
-                                 left: Get.width*.0,
+                                 bottom: 10,
+                                 left: Get.width*.093,
                                  child: Image.asset('images2/900+ Free Mobil.png'))
                            ],
                          ),
@@ -263,6 +264,12 @@ bool color=true;
                                ),
                                SizedBox(height: Get.height*.02,),
                                TextFormField(
+                                 onSaved: (val){
+                                   from=val;
+                                 },
+                                 onChanged: (val){
+                                   from=val;
+                                 },
                                  decoration: InputDecoration(
                                    hintText: 'From',
                                    prefixIcon: Icon(Icons.location_on_outlined),
@@ -271,6 +278,12 @@ bool color=true;
                                ),
                                SizedBox(height: Get.height*.02,),
                                TextFormField(
+                                   onSaved: (val){
+                                         to=val;
+                                         },
+                                 onChanged: (val){
+                                         to=val;
+                                         },
                                  decoration: InputDecoration(
                                    hintText: 'To',
                                    prefixIcon: Icon(Icons.location_on),
@@ -292,18 +305,27 @@ bool color=true;
                                SizedBox(height: Get.height*.02,),
                               color==false? TextFormField(
                                  decoration: InputDecoration(
+
                                    hintText: 'Return Date',
                                    hintStyle: TextStyle(
                                      color: Colors.grey[400],
                                    ),
                                    prefixIcon: Icon(Icons.date_range,color: Colors.grey[400],),
+                                     suffixIcon: GestureDetector(
+                                         onTap: (){
+                                           _selectDate(context);
+                                         },
+                                         child: Icon(Icons.keyboard_arrow_down_rounded,size: 30,))
                                  ),
                                ):Container(
                                 height: Get.height*.05,
                               ),
                                SizedBox(height: Get.height*.02,),
                                ElevatedButton(onPressed: (){
-                                     Get.to(Screen10());
+                                     Get.to(Screen10(
+                                       from: from,
+                                       to: to,
+                                     ));
                                },
                                    style: ElevatedButton.styleFrom(
                                        primary:mainColor

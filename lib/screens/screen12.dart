@@ -10,7 +10,9 @@ import '../constants.dart';
 
 class Screen12 extends StatelessWidget {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-
+  String? from;
+  String? to;
+  Screen12({this.to,this.from});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -371,7 +373,7 @@ class Screen12 extends StatelessWidget {
                           fontSize: 15,
                           color: Colors.black54
                       ),),
-                      Text('Cairo',style: TextStyle(
+                      Text('$from',style: TextStyle(
                           fontSize: 17,
                           color: Colors.black
                       ),),
@@ -387,7 +389,7 @@ class Screen12 extends StatelessWidget {
                           fontSize: 15,
                           color: Colors.black54
                       ),),
-                      Text('Alexandria',style: TextStyle(
+                      Text('$to',style: TextStyle(
                           fontSize: 17,
                           color: Colors.black
                       ),),
