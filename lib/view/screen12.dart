@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:suuperjet/screens/screen1.dart';
-import 'package:suuperjet/screens/screen13.dart';
-import 'package:suuperjet/screens/screen3.dart';
-import 'package:suuperjet/screens/screen5.dart';
-import 'package:suuperjet/screens/screen8.dart';
+import 'package:suuperjet/view/screen1.dart';
+import 'package:suuperjet/view/screen13.dart';
+import 'package:suuperjet/view/screen3.dart';
+import 'package:suuperjet/view/screen5.dart';
+import 'package:suuperjet/view/screen8.dart';
 
 import '../constants.dart';
+import 'auth/sign_in.dart';
 
 class Screen12 extends StatelessWidget {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   String? from;
   String? to;
-  Screen12({this.to,this.from});
+  dynamic date;
+  Screen12({this.to,this.from,this.date});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,8 +31,11 @@ class Screen12 extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        Icon(Icons.person_pin,color:mainColor,size: 30,),
-                        Icon(Icons.notifications_none,color: mainColor,size: 30,)
+                        GestureDetector(
+                            onTap: (){
+                              Get.to(SignIn());
+                            },
+                            child: Icon(Icons.person_pin,color:mainColor,size: 30,)),                        Icon(Icons.notifications_none,color: mainColor,size: 30,)
                       ],
                     ),
                     GestureDetector(
@@ -405,7 +410,7 @@ class Screen12 extends StatelessWidget {
                           fontSize: 15,
                           color: Colors.black54
                       ),),
-                      Text('4 Nov',style: TextStyle(
+                      Text('$date',style: TextStyle(
                           fontSize: 17,
                           color: Colors.black
                       ),),
@@ -498,7 +503,11 @@ class Screen12 extends StatelessWidget {
               ),
             ),
             ElevatedButton(onPressed: (){
-              Get.to(Screen13());
+              Get.to(Screen13(
+                from: from,
+                  date: date,
+                to: to,
+              ));
             },
                 style: ElevatedButton.styleFrom(
                     primary: mainColor

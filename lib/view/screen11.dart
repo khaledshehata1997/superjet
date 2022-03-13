@@ -1,12 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:suuperjet/screens/screen1.dart';
-import 'package:suuperjet/screens/screen3.dart';
-import 'package:suuperjet/screens/screen5.dart';
-import 'package:suuperjet/screens/screen8.dart';
+import 'package:suuperjet/view/screen1.dart';
+import 'package:suuperjet/view/screen3.dart';
+import 'package:suuperjet/view/screen5.dart';
+import 'package:suuperjet/view/screen8.dart';
 
 import '../constants.dart';
+import 'auth/sign_in.dart';
 
 class Screen11 extends StatelessWidget {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
@@ -27,7 +28,11 @@ class Screen11 extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        Icon(Icons.person_pin,color:mainColor,size: 30,),
+                        GestureDetector(
+                            onTap: (){
+                              Get.to(SignIn());
+                            },
+                            child: Icon(Icons.person_pin,color:mainColor,size: 30,)),
                         Icon(Icons.notifications_none,color: mainColor,size: 30,)
                       ],
                     ),

@@ -4,10 +4,11 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:suuperjet/screens/screen10.dart';
-import 'package:suuperjet/screens/screen3.dart';
-import 'package:suuperjet/screens/screen5.dart';
-import 'package:suuperjet/screens/screen8.dart';
+import 'package:suuperjet/view/auth/sign_in.dart';
+import 'package:suuperjet/view/screen10.dart';
+import 'package:suuperjet/view/screen3.dart';
+import 'package:suuperjet/view/screen5.dart';
+import 'package:suuperjet/view/screen8.dart';
 
 import '../constants.dart';
 class Screen1 extends StatefulWidget {
@@ -16,6 +17,30 @@ class Screen1 extends StatefulWidget {
 }
 
 class _Screen1State extends State<Screen1> {
+  String hint_from='From';
+  String hint_to='To';
+  String _value = '';
+  String _valueTo = '';
+ dynamic hintDate='Deprature Date';
+  List city_from=[
+    '',
+    'Cairo',
+    'Alexandria',
+    'Hurghada',
+    'Luxor',
+    'Suez',
+    'Qena',
+    'Assiut',
+    'Gharbia',
+    'Safaga',
+    'Sharm Elshiekh',
+    'South Sinai',
+    'Red Sea',
+    'Nuweiba',
+    'Matrouh',
+    'Elmenia',
+    'Port Said',
+  ];
    String? from;
    String? to;
   Color orange=Colors.orange;
@@ -47,7 +72,11 @@ bool color=true;
                        children: [
                          Row(
                            children: [
-                             Icon(Icons.person_pin,color:mainColor,size: 30,),
+                             GestureDetector(
+                                 onTap: (){
+                                   Get.to(SignIn());
+                                 },
+                                 child: Icon(Icons.person_pin,color:mainColor,size: 30,)),
                              Icon(Icons.notifications_none,color: mainColor,size: 30,)
                            ],
                          ),
@@ -271,9 +300,26 @@ bool color=true;
                                    from=val;
                                  },
                                  decoration: InputDecoration(
-                                   hintText: 'From',
+                                   hintText: '$hint_from',
                                    prefixIcon: Icon(Icons.location_on_outlined),
-                                   suffixIcon: Icon(Icons.keyboard_arrow_down_rounded,size: 30,)
+                                   suffixIcon: DropdownButton(
+                                     icon: Icon(Icons.keyboard_arrow_down_outlined),
+                                     value: _value,
+                                     underline: SizedBox(height: 1,width: .005,),
+                                     items: city_from.map((dynamic item) {
+                                       return DropdownMenuItem<dynamic>(
+                                         child: Text('$item'),
+                                         value: item,
+                                       );
+                                     }).toList(),
+                                     onChanged: (dynamic value) {
+                                       setState(() {
+                                         _value =value ;
+                                         hint_from=value;
+                                         from=value;
+                                       });
+                                     },
+                                   ),
                                  ),
                                ),
                                SizedBox(height: Get.height*.02,),
@@ -285,15 +331,32 @@ bool color=true;
                                          to=val;
                                          },
                                  decoration: InputDecoration(
-                                   hintText: 'To',
+                                   hintText: '$hint_to',
                                    prefixIcon: Icon(Icons.location_on),
-                                   suffixIcon: Icon(Icons.keyboard_arrow_down_rounded,size: 30,)
+                                   suffixIcon: DropdownButton(
+                                     icon: Icon(Icons.keyboard_arrow_down_outlined),
+                                     value: _valueTo,
+                                     underline: SizedBox(height: 1,width: .005,),
+                                     items: city_from.map((dynamic item) {
+                                       return DropdownMenuItem<dynamic>(
+                                         child: Text('$item'),
+                                         value: item,
+                                       );
+                                     }).toList(),
+                                     onChanged: (dynamic value) {
+                                       setState(() {
+                                         _valueTo =value ;
+                                         hint_to=value;
+                                         to=value;
+                                       });
+                                     },
+                                   ),
                                  ),
                                ),
                                SizedBox(height: Get.height*.02,),
                                TextFormField(
                                  decoration: InputDecoration(
-                                   hintText: 'Deprature Date',
+                                   hintText: '$hintDate',
                                    prefixIcon: Icon(Icons.date_range),
                                    suffixIcon: GestureDetector(
                                        onTap: (){
@@ -325,6 +388,7 @@ bool color=true;
                                      Get.to(Screen10(
                                        from: from,
                                        to: to,
+                                       date: hintDate,
                                      ));
                                },
                                    style: ElevatedButton.styleFrom(
@@ -679,6 +743,7 @@ bool color=true;
   }
   Future<void> _selectDate(BuildContext context) async {
     final DateTime? pickedDate = await showDatePicker(
+
         context: context,
         initialDate: currentDate,
         firstDate: DateTime(2015),
@@ -686,6 +751,7 @@ bool color=true;
     if (pickedDate != null && pickedDate != currentDate)
       setState(() {
         currentDate = pickedDate;
+        hintDate=currentDate;
       });
   }
 }

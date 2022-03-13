@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:suuperjet/screens/screen1.dart';
-import 'package:suuperjet/screens/screen14.dart';
-import 'package:suuperjet/screens/screen3.dart';
-import 'package:suuperjet/screens/screen5.dart';
-import 'package:suuperjet/screens/screen8.dart';
+import 'package:suuperjet/view/screen1.dart';
+import 'package:suuperjet/view/screen14.dart';
+import 'package:suuperjet/view/screen3.dart';
+import 'package:suuperjet/view/screen5.dart';
+import 'package:suuperjet/view/screen8.dart';
 
 import '../constants.dart';
+import 'auth/sign_in.dart';
 
 class Screen13 extends StatelessWidget {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-
+      dynamic from,to,date;
+      Screen13({this.date,this.to,this.from});
   List products=[
     'products/coffe.png',
     'products/2.png',
@@ -45,8 +47,11 @@ class Screen13 extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        Icon(Icons.person_pin,color:mainColor,size: 30,),
-                        Icon(Icons.notifications_none,color: mainColor,size: 30,)
+                        GestureDetector(
+                            onTap: (){
+                              Get.to(SignIn());
+                            },
+                            child: Icon(Icons.person_pin,color:mainColor,size: 30,)),                        Icon(Icons.notifications_none,color: mainColor,size: 30,)
                       ],
                     ),
                     GestureDetector(
@@ -178,7 +183,7 @@ class Screen13 extends StatelessWidget {
                           fontSize: 15,
                           color: Colors.black54
                       ),),
-                      Text('Cairo',style: TextStyle(
+                      Text('$from',style: TextStyle(
                           fontSize: 17,
                           color: Colors.black
                       ),),
@@ -194,7 +199,7 @@ class Screen13 extends StatelessWidget {
                           fontSize: 15,
                           color: Colors.black54
                       ),),
-                      Text('Alexandria',style: TextStyle(
+                      Text('$to',style: TextStyle(
                           fontSize: 17,
                           color: Colors.black
                       ),),
@@ -210,7 +215,7 @@ class Screen13 extends StatelessWidget {
                           fontSize: 15,
                           color: Colors.black54
                       ),),
-                      Text('4 Nov',style: TextStyle(
+                      Text('$date',style: TextStyle(
                           fontSize: 17,
                           color: Colors.black
                       ),),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:suuperjet/constants.dart';
-import 'package:suuperjet/screens/screen16.dart';
+import 'package:suuperjet/view/screen16.dart';
 
 class Screen14 extends StatelessWidget {
   @override

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../constants.dart';
+import 'auth/sign_in.dart';
 
 class Screen2 extends StatelessWidget {
   @override
@@ -18,8 +20,11 @@ class Screen2 extends StatelessWidget {
                 children: [
                   Row(
                   children: [
-                    Icon(Icons.person_pin,color:mainColor,size: 30,),
-                    Icon(Icons.notifications_none,color: mainColor,size: 30,)
+                    GestureDetector(
+                        onTap: (){
+                          Get.to(SignIn());
+                        },
+                        child: Icon(Icons.person_pin,color:mainColor,size: 30,)),                    Icon(Icons.notifications_none,color: mainColor,size: 30,)
                   ],
                   ),
                   Icon(Icons.close,color:mainColor,size: 30,)
