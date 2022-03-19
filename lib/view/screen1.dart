@@ -748,7 +748,7 @@ bool color=true;
 
         context: context,
         initialDate: currentDate,
-        firstDate: DateTime(2015),
+        firstDate: DateTime.now(),
         lastDate: DateTime(2050));
     if (pickedDate != null && pickedDate != currentDate)
       setState(() {
@@ -761,7 +761,7 @@ bool color=true;
 
         context: context,
         initialDate: currentDate,
-        firstDate: DateTime(2015),
+        firstDate: DateTime.now(),
         lastDate: DateTime(2050));
     if (pickedDate != null && pickedDate != currentDate)
       setState(() {
