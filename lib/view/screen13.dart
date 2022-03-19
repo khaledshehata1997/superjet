@@ -11,8 +11,11 @@ import 'auth/sign_in.dart';
 
 class Screen13 extends StatelessWidget {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-      dynamic from,to,date;
-      Screen13({this.date,this.to,this.from});
+  String? from;
+  String? to;
+  dynamic date;
+  dynamic date2;
+  Screen13({this.to,this.from,this.date,this.date2});
   List products=[
     'products/coffe.png',
     'products/2.png',
@@ -231,7 +234,7 @@ class Screen13 extends StatelessWidget {
                           fontSize: 15,
                           color: Colors.black54
                       ),),
-                      Text('6 Nov',style: TextStyle(
+                      Text('$date2',style: TextStyle(
                           fontSize: 17,
                           color: Colors.black
                       ),),
@@ -308,7 +311,12 @@ class Screen13 extends StatelessWidget {
               ),
             ),
             ElevatedButton(onPressed: (){
-              Get.to(Screen14());
+              Get.to(Screen14(
+                from: from,
+                to: to,
+                date2: date2,
+                date: date,
+              ));
             },
                 style: ElevatedButton.styleFrom(
                     primary: mainColor

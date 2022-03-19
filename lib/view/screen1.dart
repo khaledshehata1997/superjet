@@ -22,6 +22,7 @@ class _Screen1State extends State<Screen1> {
   String _value = '';
   String _valueTo = '';
  dynamic hintDate='Deprature Date';
+ dynamic hintDate2='Return Date';
   List city_from=[
     '',
     'Cairo',
@@ -369,14 +370,14 @@ bool color=true;
                               color==false? TextFormField(
                                  decoration: InputDecoration(
 
-                                   hintText: 'Return Date',
+                                   hintText: '$hintDate2',
                                    hintStyle: TextStyle(
                                      color: Colors.grey[400],
                                    ),
                                    prefixIcon: Icon(Icons.date_range,color: Colors.grey[400],),
                                      suffixIcon: GestureDetector(
                                          onTap: (){
-                                           _selectDate(context);
+                                           _selectDate2(context);
                                          },
                                          child: Icon(Icons.keyboard_arrow_down_rounded,size: 30,))
                                  ),
@@ -389,6 +390,7 @@ bool color=true;
                                        from: from,
                                        to: to,
                                        date: hintDate,
+                                       date2: hintDate2,
                                      ));
                                },
                                    style: ElevatedButton.styleFrom(
@@ -752,6 +754,19 @@ bool color=true;
       setState(() {
         currentDate = pickedDate;
         hintDate=currentDate;
+      });
+  }
+  Future<void> _selectDate2(BuildContext context) async {
+    final DateTime? pickedDate = await showDatePicker(
+
+        context: context,
+        initialDate: currentDate,
+        firstDate: DateTime(2015),
+        lastDate: DateTime(2050));
+    if (pickedDate != null && pickedDate != currentDate)
+      setState(() {
+        currentDate = pickedDate;
+        hintDate2=currentDate;
       });
   }
 }

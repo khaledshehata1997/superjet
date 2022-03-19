@@ -15,7 +15,8 @@ class Screen10 extends StatelessWidget {
 String? from;
 String? to;
 dynamic date;
-Screen10({this.to,this.from,this.date});
+dynamic date2;
+Screen10({this.to,this.from,this.date,this.date2});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -161,45 +162,50 @@ Screen10({this.to,this.from,this.date});
                         children: [
                           Row(
                             children: [
-                              Icon(Icons.location_on_outlined,size: 13.5),
-                              Text('From',style: TextStyle(color: Colors.black54,fontSize:11),)
+                              Icon(Icons.location_on_outlined,size: 11),
+                              Text('From',style: TextStyle(color: Colors.black54,fontSize:9),)
 
                             ],
                           ),
-                          Text('$from',style: TextStyle(color: Colors.black54,fontSize: 11),)
+                          Text('$from',style: TextStyle(color: Colors.black54,fontSize: 8),)
                         ],
                       ),
                       Column(
                         children: [
                           Row(
                             children: [
-                              Icon(Icons.location_on,size: 15),
-                              Text('To',style: TextStyle(color: Colors.black54,fontSize: 11),)
+                              Icon(Icons.location_on,size: 11),
+                              Text('To',style: TextStyle(color: Colors.black54,fontSize: 9),)
 
                             ],
                           ),
-                          Text('$to',style: TextStyle(color: Colors.black54,fontSize: 11),)
+                          Text('$to',style: TextStyle(color: Colors.black54,fontSize: 8),)
                         ],
                       ),Column(
                         children: [
                           Row(
                             children: [
-                              Icon(Icons.date_range,size: 13,),
-                              Text('Departure\n Date',style: TextStyle(color: Colors.black54,fontSize: 12),)
+                              Icon(Icons.date_range,size: 12,),
+                              Text('Departure\n Date',style: TextStyle(color: Colors.black54,fontSize: 9),)
 
                             ],
                           ),
-                          Text('$date',style: TextStyle(color: Colors.black54,fontSize: 10),)
+                          Text('$date',style: TextStyle(color: Colors.black54,fontSize: 8),)
                         ],
                       ),
-                      Text('Return Date?',style: TextStyle(color: Colors.black54,fontSize:10),),
+                      Column(
+                        children: [
+                          Text('Return Date?',style: TextStyle(color: Colors.black54,fontSize:8),),
+                          Text('$date2',style: TextStyle(color: Colors.black54,fontSize:8),),
+                        ],
+                      ),
                       ElevatedButton(onPressed: (){},
                           style: ElevatedButton.styleFrom(
                               primary: mainColor,
                           ),
                           child: Text(
                               'EDIT SEARCH',style: TextStyle(
-                            fontSize: 9,
+                            fontSize: 8,
                             fontWeight: FontWeight.bold
                           ),
                           )),
@@ -352,7 +358,7 @@ Screen10({this.to,this.from,this.date});
                             )
                           ]
                       ),
-                      padding: EdgeInsets.all(10),
+                      padding: EdgeInsets.all(6),
                       width: double.infinity,
                       height: Get.height*.15,
                       child: Row(
@@ -360,9 +366,9 @@ Screen10({this.to,this.from,this.date});
                         children: [
                           Column(
                             children: [
-                              Text('From',style: TextStyle(color: Colors.black54,fontSize: 11),),
-                              Text('$from',style: TextStyle(color: Colors.black54,fontSize: 11),),
-                              Text('02:10 pm',style: TextStyle(color: Colors.black54,fontSize: 11),)
+                              Text('From',style: TextStyle(color: Colors.black54,fontSize: 9),),
+                              Text('$from',style: TextStyle(color: Colors.black54,fontSize: 9),),
+                              Text('02:10 pm',style: TextStyle(color: Colors.black54,fontSize: 9),)
                             ],
                           ),
                           Column(
@@ -376,14 +382,14 @@ Screen10({this.to,this.from,this.date});
                           ),
                           Column(
                             children: [
-                              Text('To',style: TextStyle(color: Colors.black54,fontSize: 12),),
-                              Text('$to',style: TextStyle(color: Colors.black54,fontSize: 11),),
-                              Text('04.30 pm',style: TextStyle(color: Colors.black54,fontSize: 11),),
+                              Text('To',style: TextStyle(color: Colors.black54,fontSize: 10),),
+                              Text('$to',style: TextStyle(color: Colors.black54,fontSize: 9),),
+                              Text('04.30 pm',style: TextStyle(color: Colors.black54,fontSize: 9),),
                             ],
                           ), Column(
                             children: [
-                              Text('Date',style: TextStyle(color: Colors.black54,fontSize: 12),),
-                              Text('$date',style: TextStyle(color: Colors.black54,fontSize: 10),),
+                              Text('Date',style: TextStyle(color: Colors.black54,fontSize: 10),),
+                              Text('$date',style: TextStyle(color: Colors.black54,fontSize: 8),),
                               SizedBox(height: 3,),
 ],
                           ),
@@ -391,18 +397,20 @@ Screen10({this.to,this.from,this.date});
                             children: [
                               Column(
                                 children: [
-                                  Text('100 EGP',style: TextStyle(color: Colors.black54,fontSize: 13),),
-                                  Text('for aseat',style: TextStyle(color: Colors.black54,fontSize: 13),),
+                                  Text('100 EGP',style: TextStyle(color: Colors.black54,fontSize: 11),),
+                                  Text('for aseat',style: TextStyle(color: Colors.black54,fontSize: 11),),
                                   ElevatedButton(onPressed: (){
                                     Get.to(Screen12(
+                                      date: date,
                                       from: from,
+                                      date2:date2,
                                       to: to,));
                                   },
                                       style: ElevatedButton.styleFrom(
                                           primary: mainColor
                                       ),
                                       child: Text(
-                                          'SELECT'
+                                          'SELECT',style: TextStyle(fontSize: 9),
                                       )),
                                 ],
                               ),

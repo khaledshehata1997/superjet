@@ -12,8 +12,15 @@ import '../constants.dart';
 import 'auth/sign_in.dart';
 
 class Screen16 extends StatelessWidget {
+  String? from;
+  String? to;
+  dynamic date;
+  dynamic date2;
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-
+  TextEditingController? name=TextEditingController();
+  TextEditingController? email=TextEditingController();
+  TextEditingController? phone=TextEditingController();
+  Screen16({this.phone,this.email,this.name,this.date,this.date2,this.to,this.from});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -158,26 +165,26 @@ class Screen16 extends StatelessWidget {
                     Row(
                       children: [
                         SizedBox(width: Get.width*.07,),
-                        Text('NAME',style: TextStyle(color: Colors.black54,fontSize: 16),),
+                        Text('NAME',style: TextStyle(color: Colors.black54,fontSize: 15),),
                         SizedBox(width: Get.width*.1,),
-                        Text('Ali Mohamed Ahmed',style: TextStyle(color: Colors.black54,fontSize: 16),),
+                        Text('${name!.text}',style: TextStyle(color: Colors.black54,fontSize: 15),),
                       ],
                     ),
                     SizedBox(height: Get.height*.01,),
                     Row(
                       children: [
                         SizedBox(width: Get.width*.01,),
-                        Text('EMAIL',style: TextStyle(color: Colors.black54,fontSize: 16),),
+                        Text('EMAIL',style: TextStyle(color: Colors.black54,fontSize: 14),),
                         SizedBox(width: Get.width*.1,),
-                        Text('moh@gmail.com',style: TextStyle(color: Colors.black54,fontSize: 16),),
+                        Text('${email!.text}',style: TextStyle(color: Colors.black54,fontSize: 12),),
                       ],
                     ),
                     SizedBox(height: Get.height*.01,),
                     Row(
                       children: [
-                        Text('PHONE',style: TextStyle(color: Colors.black54,fontSize: 16),),
+                        Text('PHONE',style: TextStyle(color: Colors.black54,fontSize: 13),),
                         SizedBox(width: Get.width*.1,),
-                        Text('01034345356',style: TextStyle(color: Colors.black54,fontSize: 16),),
+                        Text('${phone!.text}',style: TextStyle(color: Colors.black54,fontSize: 13),),
                         SizedBox(width: Get.width*.04,),
                       ],
                     ),
@@ -185,74 +192,74 @@ class Screen16 extends StatelessWidget {
 
                     Row(
                       children: [
-                        Text('SEAT NUMBER',style: TextStyle(color: Colors.black54,fontSize: 16),),
+                        Text('SEAT NUMBER',style: TextStyle(color: Colors.black54,fontSize: 14),),
                         SizedBox(width: Get.width*.1,),
-                        Text('21',style: TextStyle(color: Colors.black54,fontSize: 16),),
-                        SizedBox(width: Get.width*.1,),
+                        Text('21',style: TextStyle(color: Colors.black54,fontSize: 14),),
+                        SizedBox(width: Get.width*.06,),
                       ],
                     ),
                   ],
                 ),
-                Image.asset('images/boy.png')
+                Image.asset('images/empty.png',width: Get.width*.2,)
               ],
             ) ,
-            SizedBox(height: Get.height*.04,),
-            Container(
-              alignment: Alignment.topLeft,
-              margin: EdgeInsets.only(left: 20),
-              child: Text('TICKET 2 ',style: TextStyle(
-                  fontSize: 22,
-                  color: secondColor
-              ),),
-            ),
-            SizedBox(height: Get.height*.02,),
-
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Column(
-                  children: [
-                    Row(
-                      children: [
-                        SizedBox(width: Get.width*.07,),
-                        Text('NAME',style: TextStyle(color: Colors.black54,fontSize: 16),),
-                        SizedBox(width: Get.width*.1,),
-                        Text('Nada Essam Said',style: TextStyle(color: Colors.black54,fontSize: 16),),
-                      ],
-                    ),
-                    SizedBox(height: Get.height*.01,),
-                    Row(
-                      children: [
-                        SizedBox(width: Get.width*.08,),
-                        Text('EMAIL',style: TextStyle(color: Colors.black54,fontSize: 16),),
-                        SizedBox(width: Get.width*.1,),
-                        Text('nada2@gmail.com',style: TextStyle(color: Colors.black54,fontSize: 16),),
-                      ],
-                    ),
-                    SizedBox(height: Get.height*.01,),
-                    Row(
-                      children: [
-                        Text('PHONE',style: TextStyle(color: Colors.black54,fontSize: 16),),
-                        SizedBox(width: Get.width*.1,),
-                        Text('01037455936',style: TextStyle(color: Colors.black54,fontSize: 16),),
-                        SizedBox(width: Get.width*.01,),
-                      ],
-                    ),
-                    SizedBox(height: Get.height*.01,),
-
-                    Row(
-                      children: [
-                        Text('SEAT NUMBER',style: TextStyle(color: Colors.black54,fontSize: 16),),
-                        SizedBox(width: Get.width*.1,),
-                        Text('22',style: TextStyle(color: Colors.black54,fontSize: 16),),
-                        SizedBox(width: Get.width*.09,),
-                      ],
-                    ),
-                  ],
-                ),
-                Image.asset('images/girl.png')
-              ],
-            ),
+            // SizedBox(height: Get.height*.04,),
+            // Container(
+            //   alignment: Alignment.topLeft,
+            //   margin: EdgeInsets.only(left: 20),
+            //   child: Text('TICKET 2 ',style: TextStyle(
+            //       fontSize: 22,
+            //       color: secondColor
+            //   ),),
+            // ),
+            // SizedBox(height: Get.height*.02,),
+            //
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.spaceAround,
+            //   children: [
+            //     Column(
+            //       children: [
+            //         Row(
+            //           children: [
+            //             SizedBox(width: Get.width*.07,),
+            //             Text('NAME',style: TextStyle(color: Colors.black54,fontSize: 16),),
+            //             SizedBox(width: Get.width*.1,),
+            //             Text('Nada Essam Said',style: TextStyle(color: Colors.black54,fontSize: 16),),
+            //           ],
+            //         ),
+            //         SizedBox(height: Get.height*.01,),
+            //         Row(
+            //           children: [
+            //             SizedBox(width: Get.width*.08,),
+            //             Text('EMAIL',style: TextStyle(color: Colors.black54,fontSize: 16),),
+            //             SizedBox(width: Get.width*.1,),
+            //             Text('nada2@gmail.com',style: TextStyle(color: Colors.black54,fontSize: 16),),
+            //           ],
+            //         ),
+            //         SizedBox(height: Get.height*.01,),
+            //         Row(
+            //           children: [
+            //             Text('PHONE',style: TextStyle(color: Colors.black54,fontSize: 16),),
+            //             SizedBox(width: Get.width*.1,),
+            //             Text('01037455936',style: TextStyle(color: Colors.black54,fontSize: 16),),
+            //             SizedBox(width: Get.width*.01,),
+            //           ],
+            //         ),
+            //         SizedBox(height: Get.height*.01,),
+            //
+            //         Row(
+            //           children: [
+            //             Text('SEAT NUMBER',style: TextStyle(color: Colors.black54,fontSize: 16),),
+            //             SizedBox(width: Get.width*.1,),
+            //             Text('22',style: TextStyle(color: Colors.black54,fontSize: 16),),
+            //             SizedBox(width: Get.width*.09,),
+            //           ],
+            //         ),
+            //       ],
+            //     ),
+            //     Image.asset('images/girl.png')
+            //   ],
+            // ),
             SizedBox(height: Get.height*.04,),
             Container(
               alignment: Alignment.center,
@@ -281,41 +288,41 @@ class Screen16 extends StatelessWidget {
                         children: [
                           Row(
                             children: [
-                              Icon(Icons.location_on_outlined,size: 16),
-                              Text('From',style: TextStyle(color: Colors.black54,fontSize: 14),)
+                              Icon(Icons.location_on_outlined,size: 13),
+                              Text('From',style: TextStyle(color: Colors.black54,fontSize: 11),)
 
                             ],
                           ),
-                          Text('Cairo',style: TextStyle(color: Colors.black54,fontSize: 14),)
+                          Text('$from',style: TextStyle(color: Colors.black54,fontSize: 11),)
                         ],
                       ),
                       Column(
                         children: [
                           Row(
                             children: [
-                              Icon(Icons.location_on,size: 16),
-                              Text('To',style: TextStyle(color: Colors.black54,fontSize: 14),)
+                              Icon(Icons.location_on,size: 13),
+                              Text('To',style: TextStyle(color: Colors.black54,fontSize: 11),)
 
                             ],
                           ),
-                          Text('Alexandria',style: TextStyle(color: Colors.black54,fontSize: 14),)
+                          Text('$to',style: TextStyle(color: Colors.black54,fontSize: 11),)
                         ],
                       ),Column(
                         children: [
-                          Icon(Icons.date_range,size: 16,),
-                          Text('Departure\n Date',style: TextStyle(color: Colors.black54,fontSize: 14),),
-                          Text('4 nov',style: TextStyle(color: Colors.black54,fontSize: 14),)
+                          Icon(Icons.date_range,size: 13,),
+                          Text('Departure\n Date',style: TextStyle(color: Colors.black54,fontSize: 11),),
+                          Text('$date',style: TextStyle(color: Colors.black54,fontSize: 11),)
                         ],
                       ),
                       Column(
                         children: [
                           Row(
                             children: [
-                              Icon(Icons.date_range,size: 16,),
-                              Text('Return Date?',style: TextStyle(color: Colors.black54,fontSize: 14),),
+                              Icon(Icons.date_range,size: 13,),
+                              Text('Return Date?',style: TextStyle(color: Colors.black54,fontSize: 11),),
                             ],
                           ),
-                          Text('4 nov',style: TextStyle(color: Colors.black54,fontSize: 14),)
+                          Text('$date2',style: TextStyle(color: Colors.black54,fontSize: 11),)
                         ],
                       ),
 
@@ -355,40 +362,40 @@ class Screen16 extends StatelessWidget {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          Text('Name',style: TextStyle(color:Colors.black45,fontSize: 16),),
-                          Text('From',style: TextStyle(color:Colors.black45,fontSize: 16),),
-                          Text('To',style: TextStyle(color:Colors.black45,fontSize: 16),),
+                          Text('Name',style: TextStyle(color:Colors.black45,fontSize: 13),),
+                          Text('From',style: TextStyle(color:Colors.black45,fontSize: 13),),
+                          Text('To',style: TextStyle(color:Colors.black45,fontSize: 13),),
                         ],
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          Text('Ali Mohamed',style: TextStyle(color:Colors.black45,fontSize: 16),),
-                          Text('Cairo',style: TextStyle(color:Colors.black45,fontSize: 16),),
-                          Text('Alexandria',style: TextStyle(color:Colors.black45,fontSize: 16),),
+                          Text('${name!.text}',style: TextStyle(color:Colors.black45,fontSize: 11),),
+                          Text('$from',style: TextStyle(color:Colors.black45,fontSize: 11),),
+                          Text('$to',style: TextStyle(color:Colors.black45,fontSize: 11),),
                         ],
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          Text('Ahmed',style: TextStyle(color:Colors.black45,fontSize: 16),),
-                          Text('Pick up',style: TextStyle(color:Colors.black45,fontSize: 16),),
-                          Text('Drop off',style: TextStyle(color:Colors.black45,fontSize: 16),),
+                          Text('Ahmed',style: TextStyle(color:Colors.black45,fontSize: 13),),
+                          Text('Pick up',style: TextStyle(color:Colors.black45,fontSize: 13),),
+                          Text('Drop off',style: TextStyle(color:Colors.black45,fontSize: 13),),
                         ],
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          Text('Seat 21',style: TextStyle(color:Colors.black45,fontSize: 16),),
-                          Text('02.10 am',style: TextStyle(color:Colors.black45,fontSize: 16),),
-                          Text('04.30 pm',style: TextStyle(color:Colors.black45,fontSize: 16),),
+                          Text('Seat 21',style: TextStyle(color:Colors.black45,fontSize: 13),),
+                          Text('02.10 am',style: TextStyle(color:Colors.black45,fontSize: 13),),
+                          Text('04.30 pm',style: TextStyle(color:Colors.black45,fontSize: 13),),
                         ],
                       ),  Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          Text('Date 4Nov',style: TextStyle(color:Colors.black45,fontSize: 16),),
-                          Text('Ramsis',style: TextStyle(color:Colors.black45,fontSize: 16),),
-                          Text('Moharam pk',style: TextStyle(color:Colors.black45,fontSize: 16),),
+                          Text('$date',style: TextStyle(color:Colors.black45,fontSize: 11),),
+                          Text('Ramsis',style: TextStyle(color:Colors.black45,fontSize: 11),),
+                          Text('Moharam pk',style: TextStyle(color:Colors.black45,fontSize: 11),),
                         ],
                       ),
                     ],
@@ -396,7 +403,11 @@ class Screen16 extends StatelessWidget {
                 ),
                 GestureDetector(
                   onTap: (){
-                    Get.to(Screen17());
+                    Get.to(Screen17(
+                      name: name!.text,
+                      phone: phone!.text,
+                      email: email!.text,
+                    ));
                   },
                   child: Container(
                       width: Get.width*.2,

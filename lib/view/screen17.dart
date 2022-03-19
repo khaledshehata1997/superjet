@@ -11,8 +11,15 @@ import '../constants.dart';
 import 'auth/sign_in.dart';
 
 class Screen17 extends StatelessWidget {
+  String? from;
+  String? to;
+  dynamic date;
+  dynamic date2;
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-
+  String? name ;
+  String? email ;
+  String? phone ;
+  Screen17({this.phone,this.email,this.name,this.date,this.from,this.date2,this.to});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -161,27 +168,27 @@ class Screen17 extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        SizedBox(width: Get.width*.07,),
-                        Text('NAME',style: TextStyle(color: Colors.black54,fontSize: 16),),
-                        SizedBox(width: Get.width*.1,),
-                        Text('Ali Mohamed Ahmed',style: TextStyle(color: Colors.black54,fontSize: 16),),
+                        SizedBox(width: Get.width*.00,),
+                        Text('NAME',style: TextStyle(color: Colors.black54,fontSize: 13),),
+                        SizedBox(width: Get.width*.05,),
+                        Text('$name',style: TextStyle(color: Colors.black54,fontSize: 13),),
                       ],
                     ),
                     SizedBox(height: Get.height*.01,),
                     Row(
                       children: [
                         SizedBox(width: Get.width*.01,),
-                        Text('EMAIL',style: TextStyle(color: Colors.black54,fontSize: 16),),
-                        SizedBox(width: Get.width*.1,),
-                        Text('moh@gmail.com',style: TextStyle(color: Colors.black54,fontSize: 16),),
+                        Text('EMAIL',style: TextStyle(color: Colors.black54,fontSize: 13),),
+                        SizedBox(width: Get.width*.05,),
+                        Text('$email',style: TextStyle(color: Colors.black54,fontSize: 13),),
                       ],
                     ),
                     SizedBox(height: Get.height*.01,),
                     Row(
                       children: [
-                        Text('PHONE',style: TextStyle(color: Colors.black54,fontSize: 16),),
-                        SizedBox(width: Get.width*.1,),
-                        Text('01034345356',style: TextStyle(color: Colors.black54,fontSize: 16),),
+                        Text('PHONE',style: TextStyle(color: Colors.black54,fontSize: 13),),
+                        SizedBox(width: Get.width*.155,),
+                        Text('$phone',style: TextStyle(color: Colors.black54,fontSize: 13),),
                         SizedBox(width: Get.width*.04,),
                       ],
                     ),
@@ -197,71 +204,83 @@ class Screen17 extends StatelessWidget {
                     ),
                   ],
                 ),
-                Image.asset('images/boy.png')
+                Image.asset('images/empty.png',width: Get.width*.24,)
               ],
             ) ,
+            // SizedBox(height: Get.height*.04,),
+            // Container(
+            //   alignment: Alignment.topLeft,
+            //   margin: EdgeInsets.only(left: 20),
+            //   child: Text('TICKET 2 ',style: TextStyle(
+            //     fontSize: 22,
+            //     color: secondColor
+            //   ),),
+            // ),
+            // SizedBox(height: Get.height*.02,),
+            //
+            // Row(
+            //   mainAxisAlignment: MainAxisAlignment.spaceAround,
+            //   children: [
+            //     Column(
+            //       children: [
+            //         Row(
+            //           children: [
+            //             SizedBox(width: Get.width*.07,),
+            //             Text('NAME',style: TextStyle(color: Colors.black54,fontSize: 16),),
+            //             SizedBox(width: Get.width*.1,),
+            //             Text('Nada Essam Said',style: TextStyle(color: Colors.black54,fontSize: 16),),
+            //           ],
+            //         ),
+            //         SizedBox(height: Get.height*.01,),
+            //         Row(
+            //           children: [
+            //             SizedBox(width: Get.width*.08,),
+            //             Text('EMAIL',style: TextStyle(color: Colors.black54,fontSize: 16),),
+            //             SizedBox(width: Get.width*.1,),
+            //             Text('nada2@gmail.com',style: TextStyle(color: Colors.black54,fontSize: 16),),
+            //           ],
+            //         ),
+            //         SizedBox(height: Get.height*.01,),
+            //         Row(
+            //           children: [
+            //             Text('PHONE',style: TextStyle(color: Colors.black54,fontSize: 16),),
+            //             SizedBox(width: Get.width*.1,),
+            //             Text('01037455936',style: TextStyle(color: Colors.black54,fontSize: 16),),
+            //             SizedBox(width: Get.width*.01,),
+            //           ],
+            //         ),
+            //         SizedBox(height: Get.height*.01,),
+            //
+            //         Row(
+            //           children: [
+            //             Text('SEAT NUMBER',style: TextStyle(color: Colors.black54,fontSize: 16),),
+            //             SizedBox(width: Get.width*.1,),
+            //             Text('22',style: TextStyle(color: Colors.black54,fontSize: 16),),
+            //             SizedBox(width: Get.width*.09,),
+            //           ],
+            //         ),
+            //       ],
+            //     ),
+            //     Image.asset('images/girl.png')
+            //   ],
+            // ),
             SizedBox(height: Get.height*.04,),
-            Container(
-              alignment: Alignment.topLeft,
-              margin: EdgeInsets.only(left: 20),
-              child: Text('TICKET 2 ',style: TextStyle(
-                fontSize: 22,
-                color: secondColor
-              ),),
-            ),
-            SizedBox(height: Get.height*.02,),
-
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+            Stack(
+              alignment: Alignment.center,
               children: [
+                Container(
+                    width: Get.width*.8,
+                    height: Get.height*.28,
+                    child: Image.asset('images/qrcode.png')),
                 Column(
                   children: [
-                    Row(
-                      children: [
-                        SizedBox(width: Get.width*.07,),
-                        Text('NAME',style: TextStyle(color: Colors.black54,fontSize: 16),),
-                        SizedBox(width: Get.width*.1,),
-                        Text('Nada Essam Said',style: TextStyle(color: Colors.black54,fontSize: 16),),
-                      ],
-                    ),
-                    SizedBox(height: Get.height*.01,),
-                    Row(
-                      children: [
-                        SizedBox(width: Get.width*.08,),
-                        Text('EMAIL',style: TextStyle(color: Colors.black54,fontSize: 16),),
-                        SizedBox(width: Get.width*.1,),
-                        Text('nada2@gmail.com',style: TextStyle(color: Colors.black54,fontSize: 16),),
-                      ],
-                    ),
-                    SizedBox(height: Get.height*.01,),
-                    Row(
-                      children: [
-                        Text('PHONE',style: TextStyle(color: Colors.black54,fontSize: 16),),
-                        SizedBox(width: Get.width*.1,),
-                        Text('01037455936',style: TextStyle(color: Colors.black54,fontSize: 16),),
-                        SizedBox(width: Get.width*.01,),
-                      ],
-                    ),
-                    SizedBox(height: Get.height*.01,),
-
-                    Row(
-                      children: [
-                        Text('SEAT NUMBER',style: TextStyle(color: Colors.black54,fontSize: 16),),
-                        SizedBox(width: Get.width*.1,),
-                        Text('22',style: TextStyle(color: Colors.black54,fontSize: 16),),
-                        SizedBox(width: Get.width*.09,),
-                      ],
-                    ),
+                    Text('$name',style: TextStyle(fontSize: 17),),
+                    SizedBox(height: 10,),
+                    Text('$phone',style: TextStyle(fontSize: 17)),
                   ],
-                ),
-                Image.asset('images/girl.png')
+                )
               ],
-            ),
-            SizedBox(height: Get.height*.04,),
-            Container(
-                width: Get.width*.8,
-                height: Get.height*.28,
-                child: Image.asset('images/qrcode.png'))
+            )
           ],
         ),
       ),

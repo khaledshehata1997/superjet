@@ -14,7 +14,8 @@ class Screen12 extends StatelessWidget {
   String? from;
   String? to;
   dynamic date;
-  Screen12({this.to,this.from,this.date});
+  dynamic date2;
+  Screen12({this.to,this.from,this.date,this.date2});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -144,10 +145,10 @@ class Screen12 extends StatelessWidget {
                         color: Colors.grey
                     )
                   ],
-                  color: Colors.white,
+                  color: Colors.grey[400],
                   borderRadius: BorderRadius.circular(5)
               ),
-              padding: EdgeInsets.all(2),
+              padding: EdgeInsets.all(1),
               width: double.infinity,
               height: Get.height*.135,
               child: Column(
@@ -160,47 +161,60 @@ class Screen12 extends StatelessWidget {
                         children: [
                           Row(
                             children: [
-                              Icon(Icons.location_on_outlined,size: 15),
-                              Text('From',style: TextStyle(color: Colors.black54,fontSize: 12),)
+                              Icon(Icons.location_on_outlined,size: 11),
+                              Text('From',style: TextStyle(color: Colors.black54,fontSize: 9),)
 
                             ],
                           ),
-                          Text('Cairo',style: TextStyle(color: Colors.black54,fontSize: 12),)
+                          Text('$from',style: TextStyle(color: Colors.black54,fontSize: 9),)
                         ],
                       ),
                       Column(
                         children: [
                           Row(
                             children: [
-                              Icon(Icons.location_on,size: 15),
-                              Text('To',style: TextStyle(color: Colors.black54,fontSize: 12),)
+                              Icon(Icons.location_on,size: 11),
+                              Text('To',style: TextStyle(color: Colors.black54,fontSize: 9),)
 
                             ],
                           ),
-                          Text('Alexandria',style: TextStyle(color: Colors.black54,fontSize: 12),)
+                          Text('$to',style: TextStyle(color: Colors.black54,fontSize: 9),)
                         ],
                       ),Column(
                         children: [
                           Row(
                             children: [
-                              Icon(Icons.date_range,size: 15,),
-                              Text('Departure\n Date',style: TextStyle(color: Colors.black54,fontSize: 12),)
+                              Icon(Icons.date_range,size: 11,),
+                              Text('Departure\n Date',style: TextStyle(color: Colors.black54,fontSize: 9),)
 
                             ],
                           ),
-                          Text('4 nov',style: TextStyle(color: Colors.black54,fontSize: 12),)
+                          Text('$date',style: TextStyle(color: Colors.black54,fontSize: 9),)
                         ],
                       ),
-                      Text('Return Date?',style: TextStyle(color: Colors.black54,fontSize: 12),),
-                      ElevatedButton(onPressed: (){},
+                      Text('Return Date?',style: TextStyle(color: Colors.black54,fontSize: 9),),
+                      ElevatedButton(
+
+                          onPressed: (){},
                           style: ElevatedButton.styleFrom(
-                            primary: mainColor,
+
+                            primary: Colors.grey[600],
                           ),
-                          child: Text(
-                            'EDIT SEARCH',style: TextStyle(
-                              fontSize: 10,
-                              fontWeight: FontWeight.bold
-                          ),
+                          child: Stack(
+                            alignment: Alignment.center,
+                            children: [
+                              Text(
+                                'EDIT SEARCH',style: TextStyle(
+                                  fontSize: 8,
+                                  fontWeight: FontWeight.bold
+                              ),
+                              ),
+                           Container(
+                             width: Get.width*.1,
+                             height: 1,
+                             color: mainColor,
+                           )
+                            ],
                           )),
                     ],
                   ),
@@ -336,7 +350,12 @@ class Screen12 extends StatelessWidget {
                 )),
                 SizedBox(width: Get.width*.05,),
                 ElevatedButton(onPressed: (){
-                  Get.to(Screen13());
+                  Get.to(Screen13(
+                    from: from,
+                    to: to,
+                    date: date,
+                    date2: date2,
+                  ));
                 },
                     style: ElevatedButton.styleFrom(primary: Colors.white),
                     child: Text('VIEW MENU',style: TextStyle(
@@ -426,7 +445,7 @@ class Screen12 extends StatelessWidget {
                           fontSize: 15,
                           color: Colors.black54
                       ),),
-                      Text('6 Nov',style: TextStyle(
+                      Text('$date2',style: TextStyle(
                           fontSize: 17,
                           color: Colors.black
                       ),),
@@ -506,6 +525,7 @@ class Screen12 extends StatelessWidget {
               Get.to(Screen13(
                 from: from,
                   date: date,
+                  date2: date2,
                 to: to,
               ));
             },
